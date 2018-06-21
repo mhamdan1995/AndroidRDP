@@ -1,0 +1,39 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+Properties properties = new Properties()
+File file = new File('release.properties')
+if (file.canRead()) {
+    properties.load(new FileInputStream(file))
+}
+
+def getVersionName = { ->
+
+    return "test"
+}
+
+ext {
+    versionName = properties.get('VERSION_NAME', getVersionName())
+
+    println '----------------- Project configuration -------------------'
+    println 'VERSION_NAME:       ' + versionName
+    println 'RELEASE_STORE_FILE: ' + "malik"
+    println 'RELEASE_KEY_ALIAS:  ' + "CloudConnectiv"
+    println '-----------------------------------------------------------'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.freerdp.afreerdp"
+          android:installLocation="auto">
+
+    <application
+        android:name="com.freerdp.afreerdp.application.GlobalApp"
+        android:icon="@drawable/icon_launcher_freerdp"
+        android:label="aFreeRDP">
+
+        <activity android:name="com.freerdp.freerdpcore.presentation.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.freerdp.freerdpcore.presentation.SessionActivity"/>
+        <activity android:name="com.freerdp.freerdpcore.presentation.ApplicationSettingsActivity"/>
+        <activity android:name="com.freerdp.freerdpcore.presentation.HelpActivity"/>
+        <activity android:name="com.freerdp.freerdpcore.presentation.ShortcutsActivity"/>
+
+        <provider
+            android:name="com.freerdp.freerdpcore.services.FreeRDPSuggestionProvider"
+            android:authorities="com.freerdp.afreerdp.services.freerdpsuggestionprovider"/>
+
+        <meta-data
+            android:name="com.samsung.android.keepalive.density"
+            android:value="true"/>
+
+    </application>
+
+</manifest>
+
